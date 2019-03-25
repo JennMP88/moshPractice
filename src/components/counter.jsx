@@ -1,11 +1,15 @@
 import React, { Component } from 'react'
 
 class Counter extends Component {
-    state = {
+    constructor(){
+    super()
+    this.state = {
         count: 0,
         // imageUrl:'http://picsum.photos/200'
         // tags: []
-    };
+    }};
+
+    
 
     // ---------------------Helper Functions
     getBadgeClasses() {
@@ -29,8 +33,9 @@ class Counter extends Component {
         return <ul>{this.state.tags.map(tag=><li key={tag}>{tag}</li>)}</ul> 
     }
 
-    handleIncrement(){
-        console.log('Increment Clicked',this);
+    handleIncrement=(e)=>{
+        console.log("increment clicked", this);
+
     }
 
 
