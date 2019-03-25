@@ -35,10 +35,10 @@ class Counter extends Component {
 
     handleIncrement=(e)=>{
         console.log("increment clicked", this);
+        console.log(e);
         this.setState({count:this.state.count+1})
-
     }
-
+     
 
 
     render() {
@@ -48,7 +48,7 @@ class Counter extends Component {
             {/* <img src = {this.state.imageUrl} alt=""/> */}
             <span className={this.getBadgeClasses()}>{this.formatCount()}</span>
             <button 
-            onClick={this.handleIncrement}
+            onClick={ ()=>this.handleIncrement({id:1})}
             className='btn btn-secondary btn-sm'
             >
             increment
