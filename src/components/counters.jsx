@@ -13,12 +13,25 @@ class Counters extends Component {
             ]
         }
     }
+
+    handleDelete=counterId=>{
+        console.log('Event Handler Called',counterId);
+        const counters=this.state.counters.filter(c=>c.id!==counterId)
+        this.setState({counters})    //overwrites the counters property 
+    }
         
     render() {
         return (
             <>
                 {this.state.counters.map(counter=> (
-                <Counter  key={counter.id} value={counter.value} id={counter.id} selected={true}>
+                //note onDelete reference
+                <Counter  
+                key={counter.id} 
+                onDelete={this.handleDelete} 
+                // value={counter.value} 
+                // id={counter.id} 
+                counter={counter} //carries all data from value and id 
+                selected={true}>
                     {/* <h4>Counter #{counter.id}</h4> */}
                 </Counter>
                 ))}
